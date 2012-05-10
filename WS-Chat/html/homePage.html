@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <title>homePage</title>
+    
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.0.6/css/ui-dark.css" rel="stylesheet">
+    <script src="//Microsoft.WinJS.0.6/js/base.js"></script>
+    <script src="//Microsoft.WinJS.0.6/js/ui.js"></script>
+    <!-- Websocket references -->
+    <script src="/js/socket.io.js"></script>
+    
+    <link href="/css/default.css" rel="stylesheet">
+    <link href="/css/homePage.css" rel="stylesheet">
+    <script src="/js/homePage.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div id="messageTextTemplate" data-win-control="WinJS.Binding.Template">
+        <div style="width: 500px; border: 10px">
+            <p>
+                <span data-win-bind="innerText: author; style.color: color"></span>
+                @<span data-win-bind="innerText: date"></span>
+                :<span data-win-bind="innerText: message"></span>
+            </p>
+        </div>
+    </div>
+    <div id="contentList" 
+        data-win-control="WinJS.UI.ListView">  
+    </div>
+    <div id="user">
+        <label >input user</label>
+        <input id="Text1" type="text" />
+        <button id="userButton" onclick="onUserClick()">OK</button>
+    </div>
+</body>
+</html>

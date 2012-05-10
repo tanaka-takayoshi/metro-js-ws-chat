@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+
+  <Identity
+    Name="37d584aa-a69f-46b5-afc4-3adcc9d9e0e6"
+    Version="1.0.0.0"
+    Publisher="CN=Takayoshi" />
+
+  <Properties>
+    <DisplayName>WS_Chat</DisplayName>
+    <Description>WS_Chat</Description>
+    <PublisherDisplayName>Takayoshi</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+
+  <Prerequisites>
+    <OSMinVersion>6.2</OSMinVersion>
+    <OSMaxVersionTested>6.2</OSMaxVersionTested>
+  </Prerequisites>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+
+  <Applications>
+    <Application 
+      Id="App"
+      StartPage="default.html">
+
+      <VisualElements
+        DisplayName="WS_Chat"
+        Logo="images\logo.png"
+        SmallLogo="images\smalllogo.png"
+        Description="WS_Chat"
+        ForegroundText="light"
+        BackgroundColor="#000000">
+
+        <DefaultTile ShowName="allLogos" />
+        <SplashScreen Image="images\splashscreen.png" />
+
+      </VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+
+</Package>
