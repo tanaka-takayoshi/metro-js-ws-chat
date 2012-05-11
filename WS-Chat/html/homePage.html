@@ -30,10 +30,15 @@
     <div id="contentList" 
         data-win-control="WinJS.UI.ListView">  
     </div>
-    <div id="user">
+    <div id="user" style="display: none">
         <label >input user</label>
-        <input id="Text1" type="text" />
+        <input id="userInput" type="text" />
         <button id="userButton" onclick="onUserClick()">OK</button>
+    </div>
+    <div id="message" style="display: none">
+        <label id="userLabel">user</label>
+        <input id="messageInput" type="text" />
+        <button id="sendButton" onclick="onSendClick()">Send</button>
     </div>
 </body>
 </html>

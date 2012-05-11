@@ -23,9 +23,7 @@ function ready(element, options) {
 
         socket.on('connect', function (msg) {
             console.log("connet");
-            // first we want users to enter their names
-            //input.removeAttr('disabled');
-            //status.text('Choose name:');
+            document.getElementById("user").style.display = "block";
         });
 
         socket.on('message', function (data) {
@@ -44,9 +42,10 @@ function ready(element, options) {
             // check the server source code above
             if (json.type === 'color') { // first response from the server with user's color
                 myColor = json.data;
-                status.text(myName + ': ').css('color', myColor);
-                input.removeAttr('disabled').focus();
-                // from now user can start sending messages
+                document.getElementById("userLabel").style.color = myColor;
+                var messageDiv = document.getElementById("message");
+                messageDiv.style.display = "block";
+                document.getElementById("messageInput").focus();
             } else if (json.type === 'history') { // entire message history
                 // insert every single message to the chat window
                 for (var i = 0; i < json.data.length; i++) {
@@ -54,7 +53,9 @@ function ready(element, options) {
                            json.data[i].color, new Date(json.data[i].time));
                 }
             } else if (json.type === 'message') { // it's a single message
-                //  input.removeAttr('disabled'); // let the user write another message
+                var messageDiv = document.getElementById("message");
+                messageDiv.style.display = "block";
+                document.getElementById("messageInput").focus();
                 addMessage(json.data.author, json.data.text,
                        json.data.color, new Date(json.data.time));
             } else {
@@ -104,5 +105,15 @@ function ready(element, options) {
 }
 
 function onUserClick(event) {
-    var hoge = document.getElementById("userButton");
+    var user = document.getElementById("userInput").value;
+    var label = document.getElementById("userLabel");
+    socket.emit('user', user);
+    myName = user;
+    label.innerText = myName;
+    document.getElementById("user").style.display = "none";
+}
+
+function onSendClick(event) {
+    var message = document.getElementById("messageInput").value;
+    socket.emit('message', message);
 }
